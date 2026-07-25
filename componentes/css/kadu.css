@@ -1,0 +1,409 @@
+        :root {
+            --bg-color: #f4f5f7;
+            --surface-color: #ffffff;
+            --border-glow: #e0e0e0;
+            --accent-neon: #00b38f;
+            --accent-purple: #7a00cc;
+            --text-main: #1a1a1a;
+            --text-sub: #555555;
+            --font-family: "Murecho", sans-serif;
+            --transition-speed: 0.5s;
+            --card-radius: 16px;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #000000;
+            --surface-color: #0d0d0d;
+            --border-glow: #1a1a1a;
+            --accent-neon: #00ffcc;
+            --accent-purple: #9900ff;
+            --text-main: #ffffff;
+            --text-sub: #a6a6a6;
+        }
+
+        .no-transition,
+        .no-transition * {
+            transition: none !important;
+            animation: none !important;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            transition: background-color var(--transition-speed) ease,
+                color var(--transition-speed) ease;
+            min-height: 100vh;
+        }
+
+        .theme-toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--surface-color);
+            color: var(--text-main);
+            border: 1px solid var(--border-glow);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: background-color var(--transition-speed) ease,
+                color var(--transition-speed) ease,
+                border-color var(--transition-speed) ease;
+            font-family: var(--font-family);
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: var(--accent-neon);
+        }
+
+        .ambient-glow {
+            position: fixed;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle at 50% 50%,
+                    rgba(18, 0, 179, 0.199) 0%,
+                    transparent 60%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-sub);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            transition: color var(--transition-speed) ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .back-link:hover {
+            color: var(--accent-neon);
+            border-bottom-color: var(--accent-neon);
+        }
+
+        .back-link svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .logo-wrap {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            width: 433px;
+            height: 139px;
+            max-width: 90vw;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .logo-dark {
+            background-image: url('../componentes/img/logo-dark.png');
+            display: block;
+        }
+        .logo-light {
+            background-image: url('../componentes/img/logo-light.png');
+            display: none;
+        }
+
+        [data-theme="dark"] .logo-dark {
+            display: none;
+        }
+        [data-theme="dark"] .logo-light {
+            display: block;
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .game-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-neon), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .game-header .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-sub);
+            margin-top: 0.3rem;
+            font-weight: 400;
+        }
+
+        .game-header .badge {
+            display: inline-block;
+            margin-top: 0.8rem;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            background: var(--surface-color);
+            border: 1px solid var(--accent-neon);
+            color: var(--accent-neon);
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .game-header .divider {
+            width: 80px;
+            height: 3px;
+            margin: 1rem auto 0;
+            background: linear-gradient(90deg, var(--accent-neon), var(--accent-purple));
+            border-radius: 4px;
+        }
+
+        .section-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-glow);
+            border-radius: var(--card-radius);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: background-color var(--transition-speed) ease,
+                border-color var(--transition-speed) ease,
+                box-shadow var(--transition-speed) ease;
+        }
+
+        .section-card h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .section-card h2 .accent {
+            color: var(--accent-neon);
+        }
+
+        .section-card p {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 700px;
+        }
+
+        .section-card p + p {
+            margin-top: 1rem;
+        }
+
+        .character-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .character-info {
+            flex: 1;
+        }
+
+        .character-info h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-neon);
+        }
+
+        .character-info p {
+            font-size: 1rem;
+            margin-top: 0.25rem;
+            color: var(--text-sub);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            background: var(--bg-color);
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border-glow);
+            transition: border-color var(--transition-speed) ease;
+        }
+
+        .feature-item:hover {
+            border-color: var(--accent-neon);
+        }
+
+        .feature-item .icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .feature-item h4 {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        .feature-item p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-top: 0.2rem;
+        }
+
+        .print-image {
+            width: 100%;
+            max-width: 700px;
+            border-radius: var(--card-radius);
+            border: 1px solid var(--border-glow);
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: border-color var(--transition-speed) ease;
+        }
+
+        .print-image:hover {
+            border-color: var(--accent-neon);
+        }
+
+        .print-caption {
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-top: 0.8rem;
+            font-style: italic;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .download-item {
+            background: var(--bg-color);
+            border-radius: 12px;
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border-glow);
+            transition: border-color var(--transition-speed) ease;
+        }
+
+        .download-item .icon {
+            font-size: 2.2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .download-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .download-item p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin: 0.2rem 0 1rem;
+        }
+
+        .btn-download {
+            padding: 0.5rem 1.8rem;
+            border-radius: 30px;
+            border: 1px solid var(--border-glow);
+            background: var(--surface-color);
+            color: var(--text-sub);
+            font-family: var(--font-family);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: not-allowed;
+            opacity: 0.6;
+            transition: opacity var(--transition-speed) ease;
+        }
+
+        .btn-download:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1.2rem 3rem;
+            }
+
+            .game-header h1 {
+                font-size: 2rem;
+            }
+
+            .section-card {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .section-card h2 {
+                font-size: 1.4rem;
+            }
+
+            .character-row {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .character-avatar {
+                flex: 0 0 100px;
+                width: 100px;
+                height: 100px;
+                font-size: 2.8rem;
+            }
+
+            .download-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-glow);
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-neon);
+        }
