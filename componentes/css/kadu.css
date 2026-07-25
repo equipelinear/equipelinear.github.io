@@ -127,11 +127,11 @@
         }
 
         .logo-dark {
-            background-image: url('../componentes/img/logo-dark.png');
+            background-image: url('img/logo-dark.png');
             display: block;
         }
         .logo-light {
-            background-image: url('../componentes/img/logo-light.png');
+            background-image: url('img/logo-light.png');
             display: none;
         }
 
