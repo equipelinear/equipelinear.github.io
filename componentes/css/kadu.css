@@ -111,30 +111,6 @@
             fill: currentColor;
         }
 
-        .logo-wrap {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-
-        .logo {
-            width: 433px;
-            height: 139px;
-            max-width: 90vw;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        .logo-dark {
-            background-image: url('img/logo-dark.png');
-            display: block;
-        }
-        .logo-light {
-            background-image: url('img/logo-light.png');
-            display: none;
-        }
-
         [data-theme="dark"] .logo-dark {
             display: none;
         }
