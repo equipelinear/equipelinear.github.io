@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equipe Linear - As Aventuras do Kadu</title>
+    <link rel="stylesheet" href="../componentes/css/kadu.css">
+    <link rel="icon" href="../componentes/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Murecho:wght@100..900&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+    <button class="theme-toggle-btn" id="themeToggle">Alternar Tema</button>
+    <div class="ambient-glow"></div>
+
+    <div class="container">
+
+        <a href="../" class="back-link">
+            <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+            Voltar ao inicio
+        </a>
+
+        <div class="logo-wrap">
+            <div class="logo logo-dark"></div>
+            <div class="logo logo-light"></div>
+        </div>
+
+        <header class="game-header">
+            <h1>As Aventuras de Kadu</h1>
+            <p class="subtitle">Explore, decifre enigmas e recupere o que foi perdido.</p>
+            <div class="divider"></div>
+        </header>
+
+        <section class="section-card">
+            <h2><span class="accent">Sinopse</span></h2>
+            <p>
+                Kadu é uma jovem coruja curiosa que adora explorar, fazer perguntas e descobrir coisas novas.
+                Um dia, um misterioso fenômeno faz com que todo o conhecimento da cidade comece a desaparecer: livros ficam com páginas em branco,
+                mapas perdem seus caminhos, laboratórios deixam de funcionar e até as placas das ruas desaparecem.
+            </p>
+            <p>
+                Determinado a descobrir o que está acontecendo, Kadu embarca em uma grande aventura por diferentes lugares,
+                enfrentando desafios, resolvendo enigmas e ajudando as pessoas a recuperar aquilo que foi perdido.
+            </p>
+            <p>
+                A cada descoberta, novos conhecimentos são restaurados, revelando que aprender pode ser a maior aventura de todas.
+            </p>
+        </section>
+
+        <section class="section-card">
+            <h2><span class="accent">Personagens</span></h2>
+            <div class="character-row">
+                <div class="character-info">
+                    <h3>Kadu, a Coruja</h3>
+                    <p>
+                        Curioso, inteligente e destemido. Kadu não se contenta com o silêncio do esquecimento.
+                        Com sua perspicácia, ele guia o jogador por cenários deslumbrantes e enigmas que exigem raciocínio lógico.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2><span class="accent">Sobre o Jogo</span></h2>
+            <p>
+                <strong>As Aventuras de Kadu</strong> é um jogo <strong>single-player</strong> e <strong>multi-player</strong> feito inteiramente em <b>C++</b>. Toda a lógica de enigmas, exploração e narrativa roda offline/online,
+                proporcionando uma experiência fluida e imersiva sem necessidade de navegador ou conexão com a internet.
+            </p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="icon">&#128161;</span>
+                    <h4>Enigmas Lógicos</h4>
+                    <p>Desafios integrados a história</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">&#127758;</span>
+                    <h4>Mundo Explorável 2D</h4>
+                    <p>Cidades, laboratórios e mapas</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">&#128230;</span>
+                    <h4>Offline & Nativo</h4>
+                    <p>Executável autossuficiente</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">&#127926;</span>
+                    <h4>Trilha Sonora</h4>
+                    <p>Ambientação original</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2><span class="accent">Prints</span></h2><br>
+            <img src="../componentes/imagens/001.png" alt="Tela do menu principal de As Aventuras de Kadu" class="print-image" />
+        </section>
+
+        <section class="section-card" id="download">
+            <h2><span class="accent">Downloads</span></h2>
+            <p>
+                <s>O que você está esperando? Baixe o jogo agora!</s> Os botões estão desabilitados pois o jogo se encontra em desenvolvimento.
+            </p>
+            <div class="download-grid">
+                <div class="download-item">
+                    <span class="icon">&#128421;</span>
+                    <h4>Executável</h4>
+                    <p>Windows (~150 MB)</p>
+                    <button class="btn-download" disabled>Indisponivel</button>
+                </div>
+                <div class="download-item">
+                    <span class="icon">&#127925;</span>
+                    <h4>Trilha Sonora</h4>
+                    <p>Pacote de músicas originais do jogo.</p>
+                    <button class="btn-download" disabled>Indisponivel</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const themeBtn = document.getElementById('themeToggle');
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (themeBtn) themeBtn.textContent = 'Alternar Tema';
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                if (themeBtn) themeBtn.textContent = 'Alternar Tema';
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        applyTheme(savedTheme);
+
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                document.documentElement.classList.add('no-transition');
+                const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                applyTheme(newTheme);
+                localStorage.setItem('theme', newTheme);
+                window.getComputedStyle(document.documentElement).opacity;
+                document.documentElement.classList.remove('no-transition');
+            });
+        }
+    </script>
+
+</body>
+</html>
